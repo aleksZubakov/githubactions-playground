@@ -10,6 +10,7 @@ import setuptools
 @dataclass
 class PackageConf:
     name: str
+
     @property
     def version(self):
         return read_version()
@@ -22,22 +23,24 @@ class DevPackageConf(PackageConf):
 
 def read_version(path='version'):
     with open(path) as file:
-        return file.read()
+        return file.read().rstrip()
 
 
 conf_map = {
-    'refs/heads/master': PackageConf('lzy-py'),
+    'refs/heads/main': PackageConf('lzy-py'),
     'refs/heads/dev': DevPackageConf('lzy-dev-py')
 }
 
 
 def _get_git_ref():
+    print('\n' * 5, pathlib.Path(__file__).parent.absolute())
     git_head_path = pathlib.Path(__file__).parent / '.git' / 'HEAD'
     with git_head_path.open('r') as git_head:
         return git_head.readline().split()[-1]
 
 
 try:
+    print(_get_git_ref())
     conf = conf_map[_get_git_ref()]
 except:
     raise ValueError("Trying to install from other branches than master or dev")
