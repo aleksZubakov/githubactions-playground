@@ -17,6 +17,7 @@ class PackageConf:
 
 
 class DevPackageConf(PackageConf):
+    @property
     def version(self):
         return read_version() + 'dev' + datetime.today().strftime('%Y%m%d')
 
