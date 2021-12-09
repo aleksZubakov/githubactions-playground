@@ -18,3 +18,5 @@ on:
 jobs:
   deploy:
     uses: aleksZubakov/githubactions-playground/.github/workflows/pypi-publish.yml@main
+    secrets:
+      PYPI_API_TOKEN: ${{PYPI_API_TOKEN}}
