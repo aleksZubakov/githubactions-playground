@@ -15,8 +15,7 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/workflows/pypi-publish.yml@main
+      - uses:  aleksZubakov/githubactions-playground/.github/workflows/pypi-publish.yml@main
