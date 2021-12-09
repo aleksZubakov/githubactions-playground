@@ -1,7 +1,13 @@
-name: Pypi publish
+name: Package build and PyPI publish
 
 on:
   workflow_call:
+    inputs:
+      checkout_dev:
+        required: false
+        type: boolean
+        default: false
+
     secrets:
       PYPI_API_TOKEN:
         required: true
@@ -11,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        if: inputs.checkout_dev
+        with:
+          ref: 'dev'
 
       - name: Set up Python
         uses: actions/setup-python@v2

@@ -28,8 +28,8 @@ def read_version(path='version'):
 
 
 conf_map = {
-    'refs/heads/main': PackageConf('lzy-py'),
-    'refs/heads/dev': DevPackageConf('lzy-dev-py')
+    'refs/heads/main': PackageConf(name='lzy-py'),
+    'refs/heads/dev': DevPackageConf(name='lzy-dev-py')
 }
 
 

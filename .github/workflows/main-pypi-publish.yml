@@ -18,5 +18,7 @@ on:
 jobs:
   deploy:
     uses: aleksZubakov/githubactions-playground/.github/workflows/pypi-publish.yml@main
+    with:
+      checkout_dev: true
     secrets:
       PYPI_API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
