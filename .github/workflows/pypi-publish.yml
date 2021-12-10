@@ -32,8 +32,7 @@ jobs:
           pip install build
 
       - name: Build package
-        run: |
-          echo ${{ inputs.checkout_dev && 10 || 50 }}
+        run: ${{ inputs.checkout_dev && echo 10 }}
 
       - name: Publish package
         uses: pypa/gh-action-pypi-publish@release/v1
