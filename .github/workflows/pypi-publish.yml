@@ -33,7 +33,6 @@ jobs:
 
       - name: Build package
         run: |
-          python -m build
           echo ${{ inputs.checkout_dev && 10 || 50 }}
 
       - name: Publish package
