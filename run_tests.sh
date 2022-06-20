@@ -3,3 +3,4 @@
 
 python -m unittest # discover -s ./tests | tee ./test_output
 python -m wheel
+exit 0
