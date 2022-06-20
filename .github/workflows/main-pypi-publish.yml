@@ -20,4 +20,4 @@ jobs:
       with:
         extra_nix_config: |
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-    - run: ./run_tests.sh
+    - run: ls && ./run_tests.sh
