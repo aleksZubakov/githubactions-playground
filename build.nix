@@ -13,11 +13,7 @@ let
     stdlib-list
     pure-protobuf
   ]);
-  python-lzy = python.withPackages(ps: with ps; [
-      (lzy ps)
-  ]);
   mkEnv = custom-python: pkgs.callPackage ./mk-python-env.nix { custom-python = custom-python; };
 in {
   shell = mkEnv python-default;
-  shell-lzy = mkEnv python-lzy;
 }
